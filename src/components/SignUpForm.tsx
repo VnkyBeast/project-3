@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 
 const SignUpForm = () => {
@@ -71,7 +71,7 @@ const SignUpForm = () => {
           id="fullName"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
-          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
+          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-hidden focus:border-purple-500"
           placeholder="Enter your full name"
           required
         />
@@ -86,7 +86,7 @@ const SignUpForm = () => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
+          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-hidden focus:border-purple-500"
           placeholder="Enter your email"
           required
         />
@@ -101,7 +101,7 @@ const SignUpForm = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
+          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-hidden focus:border-purple-500"
           placeholder="Choose a password"
           required
         />
@@ -117,7 +117,7 @@ const SignUpForm = () => {
             id="badgeNumber"
             value={badgeNumber}
             onChange={(e) => setBadgeNumber(e.target.value)}
-            className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
+            className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-hidden focus:border-purple-500"
             placeholder="Enter your badge number"
             required={userType === 'law'}
           />

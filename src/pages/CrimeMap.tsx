@@ -1,5 +1,4 @@
-import React from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, MapPin } from 'lucide-react';
 
 const CrimeMap: React.FC = () => {
   return (

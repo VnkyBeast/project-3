@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { MapPin, FileText, Bell, LogOut } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
@@ -10,7 +9,7 @@ interface SidebarProps {
   reportsCount: number;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ userType, userName, location, reportsCount }) => {
+const Sidebar: React.FC<SidebarProps> = ({ userName, reportsCount }) => {
   const { logout } = useAuth();
 
   return (
@@ -23,10 +22,6 @@ const Sidebar: React.FC<SidebarProps> = ({ userType, userName, location, reports
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center">
             <span className="text-white font-medium">{userName.charAt(0)}</span>
-          </div>
-          <div>
-            <h2 className="text-white font-medium">{userName}</h2>
-            <p className="text-gray-400 text-sm">{location}</p>
           </div>
         </div>
         <div className="mt-4 flex space-x-4">

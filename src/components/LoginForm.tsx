@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 
 const LoginForm = () => {
@@ -69,7 +69,7 @@ const LoginForm = () => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
+          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-hidden focus:border-purple-500"
           placeholder="Enter your email"
           required
         />
@@ -84,7 +84,7 @@ const LoginForm = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500"
+          className="w-full px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-hidden focus:border-purple-500"
           placeholder="Enter your password"
           required
         />
@@ -94,7 +94,7 @@ const LoginForm = () => {
         <input
           type="checkbox"
           id="remember"
-          className="w-4 h-4 rounded border-gray-700 bg-gray-800 text-purple-600 focus:ring-purple-500"
+          className="w-4 h-4 rounded-sm border-gray-700 bg-gray-800 text-purple-600 focus:ring-purple-500"
         />
         <label htmlFor="remember" className="ml-2 text-purple-200">
           Remember me

@@ -141,7 +141,7 @@ const ReportCrime: React.FC = () => {
           <h2 className="text-xl font-semibold text-white mb-4">5. Submit & Confirmation</h2>
           <div className="space-y-4">
             <div className="flex items-center">
-              <input type="checkbox" className="w-4 h-4 bg-gray-700 border-gray-600 rounded" />
+              <input type="checkbox" className="w-4 h-4 bg-gray-700 border-gray-600 rounded-sm" />
               <label className="ml-2 text-gray-300">
                 I confirm that the information provided is accurate to the best of my knowledge.
               </label>

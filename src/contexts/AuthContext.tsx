@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { 
+import { createContext, useContext, useEffect, useState } from 'react';
+import {
   User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -19,24 +19,40 @@ interface AuthContextType {
   loading: boolean;
 }
 
+// Create the authentication context
 const AuthContext = createContext<AuthContextType | null>(null);
 
+// Hook to use authentication
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
+
   return context;
 };
 
+// AuthProvider component
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    console.log("AuthProvider mounted");
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log("Auth state changed:", user);
+      setCurrentUser(user);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   const signup = async (email: string, password: string, fullName: string, userType: string, badgeNumber?: string) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     
-    // Create user profile in Firestore
+    // Save user details in Firestore
     await setDoc(doc(db, 'users', userCredential.user.uid), {
       fullName,
       email,
@@ -54,27 +70,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const resetPassword = (email: string) => sendPasswordResetEmail(auth, email);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
-      setLoading(false);
-    });
-
-    return unsubscribe;
-  }, []);
-
-  const value = {
-    currentUser,
-    login,
-    signup,
-    logout,
-    resetPassword,
-    loading
-  };
+  console.log("AuthProvider Rendered - Current User:", currentUser);
 
   return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
+    <AuthContext.Provider value={{ currentUser, login, signup, logout, resetPassword, loading }}>
+      {children}
     </AuthContext.Provider>
   );
 };
+
+

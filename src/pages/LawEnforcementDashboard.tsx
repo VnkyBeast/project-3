@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import SearchBar from '../components/SearchBar';
@@ -11,8 +10,7 @@ const LawEnforcementDashboard: React.FC = () => {
     <div className="flex min-h-screen bg-gray-900">
       <Sidebar
         userType="law"
-        userName="Officer Smith"
-        location="Central Precinct"
+        userName={currentUser?.displayName ?? "Anon"}
         reportsCount={24}
       />
       

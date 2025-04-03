@@ -1,4 +1,3 @@
-import React from 'react';
 import { Search, Bell } from 'lucide-react';
 
 const SearchBar: React.FC = () => {
@@ -10,7 +9,7 @@ const SearchBar: React.FC = () => {
           <input
             type="text"
             placeholder="Search for reports or locations..."
-            className="w-full pl-10 pr-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-none focus:border-purple-500"
+            className="w-full pl-10 pr-4 py-2 bg-gray-800 text-white rounded-lg border border-gray-700 focus:outline-hidden focus:border-purple-500"
           />
         </div>
       </div>
